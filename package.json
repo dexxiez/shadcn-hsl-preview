@@ -1,16 +1,48 @@
 {
-  "name": "colorblind",
-  "displayName": "ColorBlind",
+  "name": "shadcn-color-preview",
+  "displayName": "shadcn Color Preview",
   "description": "Yet another color addon but better?",
-  "version": "0.0.1",
+  "version": "1.0.0",
+  "author": {
+    "name": "Dexxiez"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dexxiez/shadcn-hsl-preview"
+  },
+  "license": "SEE LICENSE IN LICENSE.txt",
+  "icon": "images/icon.png",
   "engines": {
     "vscode": "^1.88.0"
   },
   "categories": [
+    "Programming Languages",
+    "Visualization",
     "Other"
+  ],
+  "keywords": [
+    "color",
+    "colour",
+    "preview",
+    "shadcn",
+    "hsl",
+    "css",
+    "css variables"
   ],
   "activationEvents": [
     "onLanguage:css"
+  ],
+  "badges": [
+    {
+      "url": "https://img.shields.io/badge/cool_kids-certified-orange",
+      "href": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+      "description": "Certified cool kids only"
+    },
+    {
+      "url": "https://img.shields.io/badge/best_addon_award-100_years_running-purple",
+      "description": "Best addon award 100 years running",
+      "href": "https://www.youtube.com/watch?v=1CDKfZBipQA&t=18s"
+    }
   ],
   "main": "./dist/extension.js",
   "contributes": {
