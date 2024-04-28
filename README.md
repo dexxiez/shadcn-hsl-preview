@@ -17,7 +17,9 @@ The **shadcn HSL Preview** extension for Visual Studio Code provides a simple co
 ## Example
 
 ![Example](https://github.com/dexxiez/shadcn-hsl-preview/blob/main/images/example.png?raw=true)
+
 ![Example 2](https://github.com/dexxiez/shadcn-hsl-preview/blob/main/images/example2.png?raw=true)
+
 More color information on hover of the variable.
 
 ## Requirements
@@ -30,7 +32,7 @@ If you encounter any issues or have feedback for the **shadcn HSL Preview** exte
 
 ## License
 
-This extension is licensed under the [MIT License](LICENSE).
+This extension is licensed under the [MIT License](https://github.com/dexxiez/shadcn-hsl-preview/blob/main/LICENSE.txt).
 
 ---
 
