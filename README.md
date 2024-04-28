@@ -10,7 +10,7 @@ The **shadcn HSL Preview** extension for Visual Studio Code provides a simple co
 
 ## Usage
 
-1. Install the extension from the [Visual Studio Code Marketplace](https://marketplace.visualstudio.com/).
+1. Install the extension from the [Visual Studio Code Marketplace](https://marketplace.visualstudio.com/items?itemName=dexxiez.shadcn-color-preview).
 2. Open a CSS file containing HSL color declarations using the shadcn css variable syntax.
 3. As you use HSL color values, the color preview will update automatically.
 

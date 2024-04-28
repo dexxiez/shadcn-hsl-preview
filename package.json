@@ -6,6 +6,7 @@
   "author": {
     "name": "Dexxiez"
   },
+  "publisher": "dexxiez",
   "repository": {
     "type": "git",
     "url": "https://github.com/dexxiez/shadcn-hsl-preview"
