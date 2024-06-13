@@ -31,7 +31,9 @@ export function activate(context: vscode.ExtensionContext) {
     if (!editor) {
       return;
     }
-    if (editor.document.languageId !== "css") {
+
+    const languageId = editor.document.languageId;
+    if (languageId !== "css" && languageId !== "tailwindcss") {
       return;
     }
     const text = editor.document.getText();
