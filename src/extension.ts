@@ -2,6 +2,8 @@ import * as vscode from "vscode";
 
 import { HSLToHEX, HSLToRGB } from "./utils";
 
+const ENABLED_LANGUAGES = ["css", "less", "scss", "tailwindcss"];
+
 const decorationType: vscode.TextEditorDecorationType =
   vscode.window.createTextEditorDecorationType({});
 
@@ -33,7 +35,7 @@ export function activate(context: vscode.ExtensionContext) {
     }
 
     const languageId = editor.document.languageId;
-    if (languageId !== "css" && languageId !== "tailwindcss") {
+    if (!ENABLED_LANGUAGES.includes(languageId)) {
       return;
     }
     const text = editor.document.getText();
