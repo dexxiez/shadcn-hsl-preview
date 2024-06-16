@@ -2,7 +2,7 @@ import * as vscode from "vscode";
 
 import { HSLToHEX, HSLToRGB } from "./utils";
 
-const ENABLED_LANGUAGES = ["css", "less", "scss", "tailwindcss"];
+const ENABLED_LANGUAGES = ["css", "less", "postcss", "scss", "tailwindcss"];
 
 const decorationType: vscode.TextEditorDecorationType =
   vscode.window.createTextEditorDecorationType({});
