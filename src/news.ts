@@ -3,7 +3,7 @@ import * as vscode from "vscode";
 
 import { GlobalStateManager } from "./state-manager";
 
-const latestNewsVersion = "1.2.0";
+const latestNewsVersion = "1.2.1";
 
 const showNews = async (context: vscode.ExtensionContext) => {
   console.debug("shadcn-hsl-preview: Showing news");
