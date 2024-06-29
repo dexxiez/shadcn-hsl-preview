@@ -51,3 +51,76 @@ export const HSLToHEX = (h: number, s: number, l: number) => {
   const [r, g, b] = HSLToRGB(h, s, l);
   return RGBToHEX(r, g, b);
 };
+
+export const HEXToHSL = (hex: string): string | null => {
+  // Remove the hash if present
+  hex = hex.replace(/^#/, "");
+
+  const validHex = /^([A-Fa-f0-9]{3}){1,2}$/;
+  if (hex.length < 3 || hex.length > 6 || !validHex.test(hex)) {
+    return null;
+  }
+
+  // Parse r, g, b values
+  const bigint = parseInt(hex, 16);
+  const r = (bigint >> 16) & 255;
+  const g = (bigint >> 8) & 255;
+  const b = bigint & 255;
+
+  // Convert to HSL
+  const rPercent = r / 255;
+  const gPercent = g / 255;
+  const bPercent = b / 255;
+
+  const max = Math.max(rPercent, gPercent, bPercent);
+  const min = Math.min(rPercent, gPercent, bPercent);
+  let h = 0,
+    s = 0,
+    l = (max + min) / 2;
+
+  if (max !== min) {
+    const d = max - min;
+    s = l > 0.5 ? d / (2 - max - min) : d / (max + min);
+    switch (max) {
+      case rPercent:
+        h = (gPercent - bPercent) / d + (gPercent < bPercent ? 6 : 0);
+        break;
+      case gPercent:
+        h = (bPercent - rPercent) / d + 2;
+        break;
+      case bPercent:
+        h = (rPercent - gPercent) / d + 4;
+        break;
+    }
+    h /= 6;
+  }
+
+  h = Math.round(h * 360);
+  s = Math.round(s * 100);
+  l = Math.round(l * 100);
+
+  return `${h} ${s}% ${l}%`;
+};
+
+export interface TruncateOptions {
+  length?: number;
+  omission?: string;
+}
+
+export const truncate = (rawStr: string, options?: TruncateOptions): string => {
+  const { length = 30, omission = "..." } = options ?? {};
+
+  const str = rawStr.trim();
+
+  if (str.length <= length) {
+    return str;
+  }
+
+  let maxLength = length - omission.length;
+  if (maxLength < 0) {
+    maxLength = 0;
+  }
+
+  const subString = str.slice(0, maxLength).trim();
+  return `${subString.trim()}${omission}`;
+};

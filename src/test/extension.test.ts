@@ -1,13 +1,9 @@
 import * as assert from "assert";
-// You can import and use all API from the 'vscode' module
-// as well as import your extension to test it
 import * as vscode from "vscode";
 
-import { HSLToHEX, HSLToRGB, RGBToHEX } from "../utils";
+import { HEXToHSL, HSLToHEX, HSLToRGB, RGBToHEX, type TruncateOptions, truncate } from "../utils";
 
-// import * as myExtension from '../../extension';
-
-suite("ColorBlind Extension Test Suite", () => {
+suite("Shadcn Preview Extension Test Suite", () => {
   vscode.window.showInformationMessage("Start all tests.");
 
   test("HSL Values Conversion", () => {
@@ -31,5 +27,43 @@ suite("ColorBlind Extension Test Suite", () => {
     assert.strictEqual(HSLToHEX(0, 0, 100), "#ffffff");
     assert.strictEqual(HSLToHEX(0, 0, 50), "#808080");
     assert.strictEqual(HSLToHEX(250, 64.2, 37.3), "#36229c");
+  });
+
+  test("HEX to HSL Conversion", () => {
+    assert.strictEqual(HEXToHSL("#000000"), "0 0% 0%");
+    assert.strictEqual(HEXToHSL("#ffffff"), "0 0% 100%");
+    assert.strictEqual(HEXToHSL("ff0000"), "0 100% 50%");
+    assert.strictEqual(HEXToHSL("#46745d"), "150 25% 36%");
+    assert.strictEqual(HEXToHSL("#f16c0a"), "25 92% 49%");
+    assert.strictEqual(HEXToHSL("#NULL ME PLEASE"), null);
+  });
+
+  test("Truncate without options", () => {
+    assert.strictEqual(truncate("Hello, World!"), "Hello, World!");
+    assert.strictEqual(
+      truncate("This is a very long string that needs to be truncated."),
+      "This is a very long string...",
+    );
+  });
+
+  test("Truncate with length option", () => {
+    const options: TruncateOptions = { length: 10 };
+    assert.strictEqual(truncate("Hello, World!", options), "Hello,...");
+  });
+
+  test("Truncate with omission option", () => {
+    const options: TruncateOptions = { omission: "~~~" };
+    assert.strictEqual(
+      truncate("This is a very long string that needs to be truncated.", options),
+      "This is a very long string~~~",
+    );
+  });
+
+  test("Truncate with all options", () => {
+    const options: TruncateOptions = { length: 15, omission: "..." };
+    assert.strictEqual(
+      truncate("This is a very long string that needs to be truncated.", options),
+      "This is a ve...",
+    );
   });
 });

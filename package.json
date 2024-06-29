@@ -2,7 +2,7 @@
   "name": "shadcn-color-preview",
   "displayName": "shadcn Color Preview",
   "description": "Yet another color addon but better?",
-  "version": "1.1.1",
+  "version": "1.2.0",
   "author": {
     "name": "Dexxiez"
   },
@@ -31,7 +31,8 @@
     "css variables"
   ],
   "activationEvents": [
-    "onLanguage:css"
+    "onLanguage:css",
+    "onStartupFinished"
   ],
   "badges": [
     {
@@ -47,7 +48,20 @@
   ],
   "main": "./dist/extension.js",
   "contributes": {
-    "commands": []
+    "commands": [
+      {
+        "command": "shadcn-hsl-preview.convertToHSL",
+        "title": "HSL Preview: Convert to HEX to HSL"
+      },
+      {
+        "command": "shadcn-hsl-preview.showUpdate",
+        "title": "HSL Preview: View Latest Updates"
+      },
+      {
+        "command": "shadcn-hsl-preview.resetSettings",
+        "title": "HSL Preview: Reset Settings"
+      }
+    ]
   },
   "scripts": {
     "vscode:prepublish": "pnpm run package",
@@ -72,8 +86,11 @@
     "eslint": "^8.57.0",
     "prettier": "3.2.5",
     "ts-loader": "^9.5.1",
-    "typescript": "^5.4.5",
+    "typescript": "^5.5.2",
     "webpack": "^5.91.0",
     "webpack-cli": "^5.1.4"
+  },
+  "dependencies": {
+    "semver": "^7.6.2"
   }
 }
