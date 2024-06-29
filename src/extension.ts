@@ -1,16 +1,26 @@
 import * as vscode from "vscode";
 
+import { registerCommands } from "./commands";
+import { ENABLED_LANGUAGES } from "./constants";
 import { HSLToHEX, HSLToRGB } from "./utils";
-
-const ENABLED_LANGUAGES = ["css", "less", "postcss", "scss", "tailwindcss"];
 
 const decorationType: vscode.TextEditorDecorationType =
   vscode.window.createTextEditorDecorationType({});
 
 export function activate(context: vscode.ExtensionContext) {
+  registerCommands(context);
+
   vscode.window.onDidChangeActiveTextEditor(
     (editor) => {
       updateDecorations(editor);
+    },
+    null,
+    context.subscriptions,
+  );
+
+  vscode.window.onDidChangeTextEditorVisibleRanges(
+    (event) => {
+      updateDecorations(event.textEditor);
     },
     null,
     context.subscriptions,
