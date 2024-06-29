@@ -7,6 +7,7 @@ The **shadcn HSL Preview** extension for Visual Studio Code provides a simple co
 ## Features
 
 - **Does what it says on the box:** Provides a preview of HSL colors defined using the shadcn css variable syntax in CSS files.
+- Spicy extras like conversion utilities
 
 ## Usage
 
@@ -14,13 +15,17 @@ The **shadcn HSL Preview** extension for Visual Studio Code provides a simple co
 2. Open a CSS file containing HSL color declarations using the shadcn css variable syntax.
 3. As you use HSL color values, the color preview will update automatically.
 
-## Example
+## Whats it look like?
 
 ![Example](https://github.com/dexxiez/shadcn-hsl-preview/blob/main/images/example.png?raw=true)
 
 ![Example 2](https://github.com/dexxiez/shadcn-hsl-preview/blob/main/images/example2.png?raw=true)
 
 More color information on hover of the variable.
+
+## Conversion Utilities
+
+![Convert Demo](https://github.com/dexxiez/shadcn-hsl-preview/raw/main/images/convert.gif?raw=true "Demo Time")
 
 ## Requirements
 
