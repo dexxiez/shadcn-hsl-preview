@@ -99,7 +99,7 @@ export const HEXToHSL = (hex: string): string | null => {
   s = Math.round(s * 100);
   l = Math.round(l * 100);
 
-  return `${h}, ${s}%, ${l}%`;
+  return `${h} ${s}% ${l}%`;
 };
 
 export interface TruncateOptions {

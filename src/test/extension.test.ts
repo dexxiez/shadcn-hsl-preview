@@ -30,11 +30,11 @@ suite("Shadcn Preview Extension Test Suite", () => {
   });
 
   test("HEX to HSL Conversion", () => {
-    assert.strictEqual(HEXToHSL("#000000"), "0, 0%, 0%");
-    assert.strictEqual(HEXToHSL("#ffffff"), "0, 0%, 100%");
-    assert.strictEqual(HEXToHSL("ff0000"), "0, 100%, 50%");
-    assert.strictEqual(HEXToHSL("#46745d"), "150, 25%, 36%");
-    assert.strictEqual(HEXToHSL("#f16c0a"), "25, 92%, 49%");
+    assert.strictEqual(HEXToHSL("#000000"), "0 0% 0%");
+    assert.strictEqual(HEXToHSL("#ffffff"), "0 0% 100%");
+    assert.strictEqual(HEXToHSL("ff0000"), "0 100% 50%");
+    assert.strictEqual(HEXToHSL("#46745d"), "150 25% 36%");
+    assert.strictEqual(HEXToHSL("#f16c0a"), "25 92% 49%");
     assert.strictEqual(HEXToHSL("#NULL ME PLEASE"), null);
   });
 

@@ -1,6 +1,8 @@
 import * as vscode from "vscode";
 
 import { ENABLED_LANGUAGES } from "../constants";
+import { handleUnseenUpdateNews } from "../news";
+import { GlobalStateManager } from "../state-manager";
 import { HEXToHSL, truncate } from "../utils";
 
 export class Command {
@@ -12,7 +14,7 @@ export class Command {
   }
 }
 
-export class ConvertToHslCommand extends Command {
+class ConvertToHslCommand extends Command {
   constructor() {
     super("convertToHSL", () => {
       const editor = vscode.window.activeTextEditor;
@@ -76,9 +78,32 @@ export class ConvertToHslCommand extends Command {
   }
 }
 
+class ShowUpdateCommand extends Command {
+  constructor(context: vscode.ExtensionContext) {
+    super("showUpdate", () => {
+      handleUnseenUpdateNews(context, true);
+    });
+  }
+}
+
+class ResetSettingsCommand extends Command {
+  constructor(context: vscode.ExtensionContext) {
+    super("resetSettings", () => {
+      const stateManager = new GlobalStateManager(context);
+      stateManager.resetAllValues().then(() => {
+        vscode.window.showInformationMessage("All settings have been reset");
+      });
+    });
+  }
+}
+
 export const registerCommands = (context: vscode.ExtensionContext) => {
   console.debug("shadcn-hsl-preview: Registering commands");
-  const commands = [new ConvertToHslCommand()];
+  const commands = [
+    new ConvertToHslCommand(),
+    new ShowUpdateCommand(context),
+    new ResetSettingsCommand(context),
+  ];
   commands.forEach((command) => {
     context.subscriptions.push(vscode.commands.registerCommand(command.command, command.callback));
   });
