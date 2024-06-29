@@ -1,6 +1,7 @@
 import * as vscode from "vscode";
 
 import { ENABLED_LANGUAGES } from "../constants";
+import { HEXToHSL, truncate } from "../utils";
 
 export class Command {
   command: string;
@@ -19,6 +20,7 @@ export class ConvertToHslCommand extends Command {
         return;
       }
 
+      // Check if the current language is supported, we don't want to accidently mutilate other languages
       if (!ENABLED_LANGUAGES.includes(editor.document.languageId)) {
         vscode.window
           .showWarningMessage(
@@ -33,6 +35,43 @@ export class ConvertToHslCommand extends Command {
             }
           });
       }
+
+      // Check if there is a selection or we'll use the line the cursor is on
+      const selection = editor.selection;
+      let text = editor.document.getText(
+        selection.isEmpty ? editor.document.lineAt(selection.start.line).range : selection,
+      );
+      const rangeToReplace =
+        selection.isEmpty ? editor.document.lineAt(selection.start.line).range : selection;
+
+      // The regex to match the hex colors
+      const regex = /#(?:[0-9a-fA-F]{3}){1,2}/g;
+      const hex = text.match(regex);
+      if (!hex) {
+        vscode.window.showInformationMessage("No hex colors found in selection or current line");
+        return;
+      }
+
+      // Convert the hex colors to HSL and find and replace in order
+      const hsls = hex.map((color) => {
+        const hsl = HEXToHSL(color);
+        return hsl;
+      });
+
+      hsls.forEach((hsl, index) => {
+        if (!hsl) {
+          vscode.window.showWarningMessage(
+            `Failed to convert ${truncate(`element ${index}`, { length: 10 })} to HSL`,
+          );
+          return;
+        }
+        text = text.replace(hex[index], hsl);
+      });
+
+      // Replace the text in the editor from the range
+      editor.edit((editBuilder) => {
+        editBuilder.replace(rangeToReplace, text);
+      });
     });
   }
 }

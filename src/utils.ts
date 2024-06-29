@@ -52,9 +52,14 @@ export const HSLToHEX = (h: number, s: number, l: number) => {
   return RGBToHEX(r, g, b);
 };
 
-export const HEXToHSL = (hex: string): string => {
+export const HEXToHSL = (hex: string): string | null => {
   // Remove the hash if present
   hex = hex.replace(/^#/, "");
+
+  const validHex = /^([A-Fa-f0-9]{3}){1,2}$/;
+  if (hex.length < 3 || hex.length > 6 || !validHex.test(hex)) {
+    return null;
+  }
 
   // Parse r, g, b values
   const bigint = parseInt(hex, 16);
@@ -95,4 +100,27 @@ export const HEXToHSL = (hex: string): string => {
   l = Math.round(l * 100);
 
   return `${h}, ${s}%, ${l}%`;
+};
+
+export interface TruncateOptions {
+  length?: number;
+  omission?: string;
+}
+
+export const truncate = (rawStr: string, options?: TruncateOptions): string => {
+  const { length = 30, omission = "..." } = options ?? {};
+
+  const str = rawStr.trim();
+
+  if (str.length <= length) {
+    return str;
+  }
+
+  let maxLength = length - omission.length;
+  if (maxLength < 0) {
+    maxLength = 0;
+  }
+
+  const subString = str.slice(0, maxLength).trim();
+  return `${subString.trim()}${omission}`;
 };
