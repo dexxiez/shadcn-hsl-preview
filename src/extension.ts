@@ -1,7 +1,7 @@
 import * as vscode from "vscode";
 
 import { registerCommands } from "./commands";
-import { ENABLED_LANGUAGES } from "./constants";
+import { ENABLED_LANGUAGES, SYNTAX_MATCH_REGEX } from "./constants";
 import { handleUnseenUpdateNews } from "./news";
 import { HSLToHEX, HSLToRGB } from "./utils";
 
@@ -18,8 +18,8 @@ const updateDecorations = (editor?: vscode.TextEditor) => {
     return;
   }
   const text = editor.document.getText();
-  const regex =
-    /--[\w-]+:[ \t]+?(\d{1,3}(?:\.\d)?)[ \t]+?(\d{1,3}(?:\.\d)?\%)[ \t]+?(\d{1,3}(?:\.\d)?\%)/g;
+  const regex = SYNTAX_MATCH_REGEX;
+
   const decorations: vscode.DecorationOptions[] = [];
 
   let match;
@@ -27,6 +27,7 @@ const updateDecorations = (editor?: vscode.TextEditor) => {
     if (!match || match.length < 4) {
       continue;
     }
+
     const [, h, s, l] = match;
     const [r, g, b] = HSLToRGB(Number(h), Number(s.replace("%", "")), Number(l.replace("%", "")));
     const hex = HSLToHEX(Number(h), Number(s.replace("%", "")), Number(l.replace("%", "")));
@@ -41,6 +42,7 @@ const updateDecorations = (editor?: vscode.TextEditor) => {
           backgroundColor: `rgb(${r}, ${g}, ${b})`,
           height: "15px",
           width: "15px",
+          verticalAlign: "middle",
           margin: "0 3px 0 3px",
           border: "1px solid rgba(0, 0, 0, 0.2)",
         },

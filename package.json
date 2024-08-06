@@ -2,7 +2,7 @@
   "name": "shadcn-color-preview",
   "displayName": "shadcn Color Preview",
   "description": "Yet another color addon but better?",
-  "version": "1.2.2",
+  "version": "1.3.0",
   "author": {
     "name": "Dexxiez"
   },
@@ -77,17 +77,18 @@
   "devDependencies": {
     "@trivago/prettier-plugin-sort-imports": "^4.3.0",
     "@types/mocha": "^10.0.7",
-    "@types/node": "~20.12.7",
-    "@types/vscode": "^1.88.0",
-    "@typescript-eslint/eslint-plugin": "^7.17.0",
-    "@typescript-eslint/parser": "^7.7.1",
-    "@vscode/test-cli": "^0.0.9",
+    "@types/node": "^20.14.14",
+    "@types/semver": "^7.5.8",
+    "@types/vscode": "1.88.0",
+    "@typescript-eslint/eslint-plugin": "^7.18.0",
+    "@typescript-eslint/parser": "^7.18.0",
+    "@vscode/test-cli": "^0.0.10",
     "@vscode/test-electron": "^2.4.1",
     "eslint": "^8.57.0",
     "prettier": "3.2.5",
     "ts-loader": "^9.5.1",
-    "typescript": "^5.5.2",
-    "webpack": "^5.91.0",
+    "typescript": "^5.5.4",
+    "webpack": "^5.93.0",
     "webpack-cli": "^5.1.4"
   },
   "dependencies": {
