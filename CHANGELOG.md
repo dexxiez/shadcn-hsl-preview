@@ -5,6 +5,21 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html)
 
+## [1.3.0] - 2024-08-06
+
+### Added
+
+- Extended color preview support to JavaScript, TypeScript, and JSX/TSX React files.
+- Improved syntax matching for HSL color values across supported languages.
+
+### Changed
+
+- Modified the color preview box to be more aligned in the middle of the line.
+
+### Updated
+
+- Upgraded several dev dependencies to their latest versions and added type definitions for `semver` as they seemed to be missing.
+
 ## [1.2.2] - 2024-06-29
 
 ### Fixed
