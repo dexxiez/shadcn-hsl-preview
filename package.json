@@ -80,7 +80,7 @@
     "@types/node": "^20.14.14",
     "@types/semver": "^7.5.8",
     "@types/vscode": "1.88.0",
-    "@typescript-eslint/eslint-plugin": "^7.18.0",
+    "@typescript-eslint/eslint-plugin": "^8.0.1",
     "@typescript-eslint/parser": "^7.18.0",
     "@vscode/test-cli": "^0.0.10",
     "@vscode/test-electron": "^2.4.1",
