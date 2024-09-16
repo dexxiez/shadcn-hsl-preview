@@ -76,7 +76,7 @@
   },
   "devDependencies": {
     "@trivago/prettier-plugin-sort-imports": "^4.3.0",
-    "@types/mocha": "^10.0.7",
+    "@types/mocha": "^10.0.8",
     "@types/node": "^20.16.5",
     "@types/semver": "^7.5.8",
     "@types/vscode": "1.88.0",
@@ -87,7 +87,7 @@
     "eslint": "^8.57.0",
     "prettier": "3.3.3",
     "ts-loader": "^9.5.1",
-    "typescript": "^5.5.4",
+    "typescript": "^5.6.2",
     "webpack": "^5.94.0",
     "webpack-cli": "^5.1.4"
   },
