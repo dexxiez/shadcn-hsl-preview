@@ -1,7 +1,15 @@
 import * as assert from "assert";
 import * as vscode from "vscode";
 
-import { HEXToHSL, HSLToHEX, HSLToRGB, RGBToHEX, type TruncateOptions, truncate } from "../utils";
+import {
+  HEXToHSL,
+  HSLToHEX,
+  HSLToRGB,
+  RGBToHEX,
+  RGBToHSL,
+  type TruncateOptions,
+  truncate,
+} from "../utils";
 
 suite("Shadcn Preview Extension Test Suite", () => {
   vscode.window.showInformationMessage("Start all tests.");
@@ -11,6 +19,7 @@ suite("Shadcn Preview Extension Test Suite", () => {
     assert.deepStrictEqual(HSLToRGB(142, 76, 36), [22, 162, 73]);
     assert.deepStrictEqual(HSLToRGB(0, 0, 100), [255, 255, 255]);
     assert.deepStrictEqual(HSLToRGB(0, 0, 50), [128, 128, 128]);
+    assert.deepStrictEqual(HSLToRGB(0, 84.2, 60.2), [239, 68, 68]);
   });
 
   test("HEX Values Conversion", () => {
@@ -36,6 +45,29 @@ suite("Shadcn Preview Extension Test Suite", () => {
     assert.strictEqual(HEXToHSL("#46745d"), "150 25% 36%");
     assert.strictEqual(HEXToHSL("#f16c0a"), "25 92% 49%");
     assert.strictEqual(HEXToHSL("#NULL ME PLEASE"), null);
+  });
+
+  test("HSL to RGB Conversion", () => {
+    assert.deepStrictEqual(RGBToHSL(255, 0, 0), [0, 100, 50]); // Pure red
+    assert.deepStrictEqual(RGBToHSL(0, 255, 0), [120, 100, 50]); // Pure green
+    assert.deepStrictEqual(RGBToHSL(0, 0, 255), [240, 100, 50]); // Pure blue
+
+    // Grays - these are tricky bastards because hue is undefined
+    assert.deepStrictEqual(RGBToHSL(128, 128, 128), [0, 0, 50.2]); // Mid gray
+    assert.deepStrictEqual(RGBToHSL(0, 0, 0), [0, 0, 0]); // Black
+    assert.deepStrictEqual(RGBToHSL(255, 255, 255), [0, 0, 100]); // White
+
+    // Mixed colors that tend to break shit
+    assert.deepStrictEqual(RGBToHSL(128, 0, 128), [300, 100, 25.1]); // Purple
+    assert.deepStrictEqual(RGBToHSL(64, 224, 208), [174, 72.1, 56.5]); // Turquoise
+
+    // Edge case: very close values that might get rounded weird
+    assert.deepStrictEqual(RGBToHSL(100, 100, 101), [240, 0.5, 39.4]);
+    assert.deepStrictEqual(RGBToHSL(239, 68, 68), [0, 84.2, 60.2]);
+
+    assert.deepStrictEqual(RGBToHSL(239, 68, 68), [0, 84.2, 60.2]); // Red max
+    assert.deepStrictEqual(RGBToHSL(74, 222, 128), [141.9, 69.2, 58]); // Green max
+    assert.deepStrictEqual(RGBToHSL(73, 184, 201), [188, 54.2, 53.7]); // Blue max
   });
 
   test("Truncate without options", () => {
