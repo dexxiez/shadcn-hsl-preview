@@ -102,6 +102,40 @@ export const HEXToHSL = (hex: string): string | null => {
   return `${h} ${s}% ${l}%`;
 };
 
+export const RGBToHSL = (r: number, g: number, b: number): [number, number, number] => {
+  const R = r / 255;
+  const G = g / 255;
+  const B = b / 255;
+
+  const max = Math.max(R, G, B);
+  const min = Math.min(R, G, B);
+  const delta = max - min;
+
+  let h = 0;
+  let s = 0;
+  const l = (max + min) / 2;
+
+  if (delta !== 0) {
+    if (max === R) {
+      h = ((G - B) / delta) % 6; // Only use %6 for red!
+    } else if (max === G) {
+      h = (B - R) / delta + 2; // No %6 needed for green
+    } else {
+      h = (R - G) / delta + 4; // No %6 needed for blue
+    }
+    h *= 60;
+    if (h < 0) h += 360;
+
+    s = delta / (1 - Math.abs(2 * l - 1));
+  }
+
+  return [
+    parseFloat(h.toFixed(1)),
+    parseFloat((s * 100).toFixed(1)),
+    parseFloat((l * 100).toFixed(1)),
+  ];
+};
+
 export interface TruncateOptions {
   length?: number;
   omission?: string;
