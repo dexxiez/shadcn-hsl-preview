@@ -77,7 +77,7 @@
   "devDependencies": {
     "@trivago/prettier-plugin-sort-imports": "^4.3.0",
     "@types/mocha": "^10.0.10",
-    "@types/node": "^20.17.16",
+    "@types/node": "^20.17.17",
     "@types/semver": "^7.5.8",
     "@types/vscode": "1.88.0",
     "@typescript-eslint/eslint-plugin": "^7.18.0",
