@@ -27,6 +27,8 @@ More color information on hover of the variable.
 
 ![Convert Demo](https://github.com/dexxiez/shadcn-hsl-preview/raw/main/images/convert.gif?raw=true "Demo Time")
 
+NOTE: HEX color highlighting is not included with this extension on purpose as most people will have a different addon that does this, which will cause a conflict.
+
 ## Requirements
 
 - Visual Studio Code version 1.88.0 or higher.
