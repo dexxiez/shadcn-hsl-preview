@@ -22,8 +22,6 @@ const colorProvider = vscode.languages.registerColorProvider(ENABLED_LANGUAGES, 
         document.positionAt(match.index + match[0].length),
       );
 
-      console.debug("range", range, "color", color);
-
       colors.push(new vscode.ColorInformation(range, color));
     }
 
