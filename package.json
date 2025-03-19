@@ -2,7 +2,7 @@
   "name": "shadcn-color-preview",
   "displayName": "shadcn Color Preview",
   "description": "Yet another color addon but better?",
-  "version": "1.3.0",
+  "version": "2.0.0",
   "author": {
     "name": "Dexxiez"
   },
@@ -66,32 +66,36 @@
   "scripts": {
     "vscode:prepublish": "pnpm run package",
     "compile": "webpack",
+    "build": "webpack",
     "watch": "webpack --watch",
     "package": "webpack --mode production --devtool hidden-source-map",
     "compile-tests": "tsc -p . --outDir out",
     "watch-tests": "tsc -p . -w --outDir out",
     "pretest": "pnpm run compile-tests && pnpm run compile && pnpm run lint",
-    "lint": "eslint src --ext ts",
+    "lint": "eslint",
     "test": "vscode-test"
   },
   "devDependencies": {
-    "@trivago/prettier-plugin-sort-imports": "^4.3.0",
+    "@trivago/prettier-plugin-sort-imports": "^5.2.2",
     "@types/mocha": "^10.0.10",
-    "@types/node": "^20.17.16",
+    "@types/node": "^22.13.10",
     "@types/semver": "^7.5.8",
     "@types/vscode": "1.88.0",
-    "@typescript-eslint/eslint-plugin": "^7.18.0",
-    "@typescript-eslint/parser": "^7.18.0",
+    "@typescript-eslint/eslint-plugin": "^8.26.1",
+    "@typescript-eslint/parser": "^8.26.1",
     "@vscode/test-cli": "^0.0.10",
     "@vscode/test-electron": "^2.4.1",
-    "eslint": "^8.57.0",
-    "prettier": "3.3.3",
+    "eslint": "^9.22.0",
+    "prettier": "3.5.3",
     "ts-loader": "^9.5.2",
-    "typescript": "^5.7.3",
-    "webpack": "^5.97.1",
-    "webpack-cli": "^5.1.4"
+    "typescript": "^5.8.2",
+    "webpack": "^5.98.0",
+    "webpack-cli": "^6.0.1"
   },
   "dependencies": {
-    "semver": "^7.7.0"
+    "semver": "^7.7.1"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": []
   }
 }

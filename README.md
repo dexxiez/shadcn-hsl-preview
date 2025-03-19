@@ -6,8 +6,9 @@ The **shadcn HSL Preview** extension for Visual Studio Code provides a simple co
 
 ## Features
 
-- **Does what it says on the box:** Provides a preview of HSL colors defined using the shadcn css variable syntax in CSS files.
+- **Does what it says on the box:** Provides a preview of HSL colors defined using the shadcn css variable syntax in files.
 - Spicy extras like conversion utilities
+
 
 ## Usage
 
@@ -21,11 +22,26 @@ The **shadcn HSL Preview** extension for Visual Studio Code provides a simple co
 
 ![Example 2](https://github.com/dexxiez/shadcn-hsl-preview/blob/main/images/example2.png?raw=true)
 
-More color information on hover of the variable.
+More color information on hover of the value. Includes a color mixer, cool!
 
 ## Conversion Utilities
 
 ![Convert Demo](https://github.com/dexxiez/shadcn-hsl-preview/raw/main/images/convert.gif?raw=true "Demo Time")
+
+NOTE: HEX color highlighting is not included with this extension on purpose as most people will have a different addon that does this, which will cause a conflict.
+
+## File Support
+
+This addon works with the following file types
+
+- CSS
+- SCSS
+- LESS
+- PostCSS
+- JS & JSX
+- TS & TSX
+- TailwindCSS files (files which the Tailwind LSP recognizes as on of it's own)
+
 
 ## Requirements
 
