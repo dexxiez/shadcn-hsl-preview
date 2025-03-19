@@ -5,6 +5,26 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html)
 
+## [2.0.0] - 2025-03-19
+
+### Added
+- Native color provider integration with VS Code
+- Color mixer on color hover
+- Support for additional file types including TS/TSX, JS/JSX
+- Improved hover information showing RGB and HEX values
+- Support for decimal values in HSL color definitions
+- RGBToHSL conversion utility
+
+### Changed
+- Migrated from eslintrc to flat config format (eslint.config.mjs)
+- Updated NPM configuration with `shamefully-hoist` and `save-exact` options
+- Improved syntax matching regex to handle decimal precision better
+- Refactored codebase into separate providers (color-provider.ts, hover-provider.ts)
+- Updated all dependencies to their latest versions
+
+### Removed
+- Custom decoration-based color preview in favor of native VS Code color provider
+
 ## [1.3.0] - 2024-08-06
 
 ### Added
