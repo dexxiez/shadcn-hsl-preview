@@ -82,14 +82,14 @@
     "@types/semver": "^7.7.0",
     "@types/vscode": "1.88.0",
     "@typescript-eslint/eslint-plugin": "^8.26.1",
-    "@typescript-eslint/parser": "^8.31.1",
+    "@typescript-eslint/parser": "^8.32.0",
     "@vscode/test-cli": "^0.0.10",
     "@vscode/test-electron": "^2.5.2",
     "eslint": "^9.22.0",
     "prettier": "3.5.3",
     "ts-loader": "^9.5.2",
     "typescript": "^5.8.3",
-    "webpack": "^5.99.7",
+    "webpack": "^5.99.8",
     "webpack-cli": "^6.0.1"
   },
   "dependencies": {
