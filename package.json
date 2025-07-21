@@ -78,18 +78,18 @@
   "devDependencies": {
     "@trivago/prettier-plugin-sort-imports": "^5.2.2",
     "@types/mocha": "^10.0.10",
-    "@types/node": "^24.0.13",
+    "@types/node": "^24.0.15",
     "@types/semver": "^7.7.0",
     "@types/vscode": "1.88.0",
     "@typescript-eslint/eslint-plugin": "^8.26.1",
-    "@typescript-eslint/parser": "^8.36.0",
+    "@typescript-eslint/parser": "^8.37.0",
     "@vscode/test-cli": "^0.0.11",
     "@vscode/test-electron": "^2.5.2",
     "eslint": "^9.22.0",
     "prettier": "3.5.3",
     "ts-loader": "^9.5.2",
     "typescript": "^5.8.3",
-    "webpack": "^5.100.1",
+    "webpack": "^5.100.2",
     "webpack-cli": "^6.0.1"
   },
   "dependencies": {
