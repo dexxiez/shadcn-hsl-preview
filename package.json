@@ -82,7 +82,7 @@
     "@types/semver": "^7.7.1",
     "@types/vscode": "1.88.0",
     "@typescript-eslint/eslint-plugin": "^8.26.1",
-    "@typescript-eslint/parser": "^8.42.0",
+    "@typescript-eslint/parser": "^8.43.0",
     "@vscode/test-cli": "^0.0.11",
     "@vscode/test-electron": "^2.5.2",
     "eslint": "^9.22.0",
