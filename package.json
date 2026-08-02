@@ -84,7 +84,7 @@
     "@typescript-eslint/eslint-plugin": "^8.26.1",
     "@typescript-eslint/parser": "^8.65.0",
     "@vscode/test-cli": "^0.0.15",
-    "@vscode/test-electron": "^2.5.2",
+    "@vscode/test-electron": "^3.1.0",
     "eslint": "^9.22.0",
     "prettier": "3.5.3",
     "ts-loader": "^9.6.2",
