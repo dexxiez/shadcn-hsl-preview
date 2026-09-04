@@ -5,6 +5,21 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html)
 
+## [2.0.2] - 2026-09-05
+
+### Changed
+- Switched build scripts from pnpm to npm (fuck sake)
+- Updated TypeScript from v5.8.2 to v6.0.3
+- Updated Webpack from v5.98.0 to v5.110.1, with webpack-cli updated to v7.2.3
+- Updated semver from v7.7.1 to v7.8.5
+- Updated prettier-plugin-sort-imports from v5.2.2 to v6.0.2
+- Updated @types/node from v22 to v26.4.0
+- Updated @types/semver from v7.5.8 to v7.8.0
+- Updated typescript-eslint (plugin and parser) from v8.26.1 to v8.69.0
+- Updated @vscode/test-cli from v0.0.10 to v0.0.15
+- Updated @vscode/test-electron from v2.4.1 to v2.5.2
+- Updated ts-loader from v9.5.2 to v9.6.2
+
 ## [2.0.0] - 2025-03-19
 
 ### Added
